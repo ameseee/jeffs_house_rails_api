@@ -7,7 +7,7 @@ RSpec.describe RefreshController, type: :controller do
   def response_json
     JSON.parse(response.body) rescue {}
   end
-  
+
   describe "POST #create" do
     let(:user) { create(:user) }
 

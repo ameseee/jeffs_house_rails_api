@@ -5,7 +5,7 @@ RSpec.describe SigninController, type: :controller do
   def response_json
     JSON.parse(response.body) rescue {}
   end
-  
+
   describe 'POST #create' do
     let(:password) { 'MyString' }
     let(:user) { create(:user) }

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_13_191032) do
+ActiveRecord::Schema.define(version: 2018_10_21_215944) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,4 +26,16 @@ ActiveRecord::Schema.define(version: 2018_10_13_191032) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "work_orders", force: :cascade do |t|
+    t.string "location"
+    t.text "details"
+    t.boolean "urgent"
+    t.bigint "user_id"
+    t.integer "status", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_work_orders_on_user_id"
+  end
+
+  add_foreign_key "work_orders", "users"
 end
